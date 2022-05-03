@@ -82,7 +82,7 @@ public class Main {
                             if (grid.getStrikes() == grid.getMaxStrikes()) {
                                 System.out.println("You have lost the game.");
                                 System.out.println("Here is the solved board:");
-                                grid.printBoard();
+                                grid.printSolved();
                                 System.exit(0);
                             }
                         }

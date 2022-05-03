@@ -175,6 +175,36 @@ public class Grid {
         System.out.println("\n");
     }
 
+    public void printSolved() {
+        StringBuilder builder = new StringBuilder();
+        builder.append("ROW\n"); // to symbolize rows
+        String[] letters = new String[]{"C", "O", "L"}; // to symbolize columns
+        int i = 0;
+        for (int y = 0; y < height; y++) {
+            for (int x = 0; x < width; x++) {
+                if (x % 3 == 0 && x != 0) {
+                    builder.append("  ");
+                    if (y == 0) {
+                        builder.insert(3, "  ROW");
+                    }
+                }
+                builder.append(solved[x][y]);
+                if (x == width - 1) {
+                    builder.append(" ").append(letters[i]);
+                    if (i++ >= letters.length - 1) {
+                        i = 0;
+                    }
+                }
+            }
+            if (y % 3 == 2) {
+                builder.append("\n");
+            }
+            builder.append("\n");
+        }
+        System.out.println(builder.toString().trim());
+        System.out.println("\n");
+    }
+
     public void setStrikes(int strikes) {
         this.strikes = strikes;
     }
